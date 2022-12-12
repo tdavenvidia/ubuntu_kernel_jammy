@@ -1,0 +1,7 @@
+#!/bin/bash -eu
+
+. debian/debian.env
+
+
+#sed -i /getall/d ${DEBIAN}/etc/getabis
+
