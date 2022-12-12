@@ -2,7 +2,7 @@ Name:    linux-lowlatency-hwe-5.19
 Version: 5.19.0
 Series:  22.04 (jammy)
 Description:
-    This is the source code for the Ubuntu linux-lowlatency HWE kernel for the 22.10 series.
+    This is the source code for the Ubuntu HWE lowlatency kernel for the 22.04 series.
     This source tree is used to produce the flavours: lowlatency, lowlatency-64k.
     This kernel is configured to support the widest range of desktop, laptop and
     server configurations.
