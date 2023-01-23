@@ -2,6 +2,16 @@
 
 . debian/debian.env
 
+# Override config settings (in the annotations) which are not applicable in the
+# 22-04/Jammy environment when using GCC-11.
+GCC=$(grep "export gcc.=" debian/rules.d/0-common-vars.mk | cut -d= -f2)
+GCCV=$($GCC --version | grep ^gcc | cut -d" " -f3 | cut -d. -f1)
+
+# These come from the parent and are not adjusted for lowlatency.
+if [ "$GCCV" = "11" ]; then
+	sed -i 	-e "/CONFIG_INIT_STACK_ALL_ZERO/s/'y'/'-'/g" \
+		-e "/CONFIG_SHADOW_CALL_STACK/s/'y'/'-'/g" \
+		"debian.master/config/annotations"
+fi
 
 #sed -i /getall/d ${DEBIAN}/etc/getabis
-
